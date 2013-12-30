@@ -1,8 +1,12 @@
 {
   "name": "rcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Recursive parallel copy",
   "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jutaz/rcp.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
