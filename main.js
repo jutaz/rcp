@@ -1,6 +1,7 @@
 var fs = require('fs');
 var util = require('util');
 var copier = require('./lib/copier');
+var path = require('path');
 var EventEmitter = require('events').EventEmitter;
 
 module.exports = rcp;
@@ -17,12 +18,8 @@ rcp.prototype.copy = function(source, destination, callback) {
         limit: this.limit,
         stopOnError: this.stopOnError
     };
-    copier = new copier(source, destination, options);
-    copier.on('done', function(err, processed) {
-        if(err) {
-            callback(err);
-            return;
-        }
+    copier = new copier(path.resolve(source), path.resolve(destination), options);
+    copier.on('done', function(processed) {
         callback(null, processed);
     })
     copier.on('error', function(err) {
