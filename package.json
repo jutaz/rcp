@@ -1,6 +1,6 @@
 {
   "name": "rcp",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Recursive parallel copy",
   "main": "main.js",
   "repository": {
