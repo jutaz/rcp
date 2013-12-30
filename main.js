@@ -17,13 +17,14 @@ rcp.prototype.copy = function(source, destination, callback) {
         limit: this.limit,
         stopOnError: this.stopOnError
     };
-    copier = new copier(source, destination, options, function(err, processed) {
+    copier = new copier(source, destination, options);
+    copier.on('done', function(err, processed) {
         if(err) {
             callback(err);
             return;
         }
         callback(null, processed);
-    });
+    })
     copier.on('error', function(err) {
         if(self.stopOnError) {
             callback(err);
